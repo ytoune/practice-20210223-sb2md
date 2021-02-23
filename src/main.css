@@ -1,0 +1,63 @@
+button {
+	height: 3rem;
+	width: 3rem;
+	font-family: inherit;
+	font-size: 100%;
+}
+#buttons_pc {
+	margin-left: 0.7rem;
+}
+#buttons_phone {
+	text-align: center;
+}
+@media screen and (max-width: 680px) {
+	.container {
+		width: 100%;
+	}
+	.textarea_container {
+		width: 100%;
+	}
+	textarea {
+		width: 100%;
+		resize: vertical;
+		font-family: inherit;
+		font-size: 100%;
+		height: 33vh;
+	}
+}
+@media screen and (min-width: 680px) {
+	.container {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 1fr 4rem 1fr;
+		grid-template-rows: 2rem 70vh;
+	}
+	textarea {
+		width: 100%;
+		font-family: inherit;
+		font-size: 100%;
+		height: 70vh;
+	}
+	#legend_scrapbox {
+		display: block;
+		grid-row: 1 / 2;
+		grid-column: 1 / 2;
+	}
+	#texcont_scrapbox {
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
+	}
+	#legend_hatena {
+		white-space: nowrap;
+		grid-row: 1 / 2;
+		grid-column: 3 / 4;
+	}
+	#texcont_hatena {
+		grid-row: 2 / 3;
+		grid-column: 3 / 4;
+	}
+	#buttons_pc {
+		grid-row: 2 / 3;
+		grid-column: 2 / 3;
+	}
+}

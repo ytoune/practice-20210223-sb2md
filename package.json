@@ -1,0 +1,71 @@
+{
+  "name": "practice-20210223-sb2md",
+  "version": "0.0.1",
+  "description": "",
+  "author": {
+    "name": "ytoune"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "deploy": "yarn build && yarn push-page",
+    "push-page": "gh-pages --dist dist --dotfiles",
+    "build": "rimraf dist && cp -r statics dist && NODE_ENV=production node scripts/build.js",
+    "dev": "rimraf dist && cp -r statics dist && NODE_ENV=development node scripts/build.js",
+    "release": "yarn build && ts-node scripts/release.ts",
+    "test": "eslint '**/*.{ts,tsx}' --ignore-path .gitignore && tsc --noEmit && jest --passWithNoTests",
+    "ts-node": "ts-node --files -O '{\"module\":\"commonjs\"}'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/gh-pages": "3.0.0",
+    "@types/jest": "26.0.20",
+    "@types/node": "14.14.31",
+    "@typescript-eslint/eslint-plugin": "4.15.2",
+    "@typescript-eslint/parser": "4.15.2",
+    "esbuild": "0.8.50",
+    "eslint": "7.20.0",
+    "eslint-config-prettier": "8.0.0",
+    "eslint-import-resolver-typescript": "2.4.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "gh-pages": "3.1.0",
+    "jest": "26.6.3",
+    "md2hatena": "0.3.1",
+    "md2sb": "5.1.1",
+    "path": "0.12.7",
+    "preact": "10.5.12",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2",
+    "sb2md": "1.0.1",
+    "ts-jest": "26.5.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.1.5",
+    "url": "0.11.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
+    },
+    "projects": [
+      "<rootDir>"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/src/$1"
+    }
+  },
+  "prettier": {
+    "useTabs": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false,
+    "arrowParens": "avoid"
+  },
+  "browser": {
+    "path": "path",
+    "url": "url"
+  }
+}
